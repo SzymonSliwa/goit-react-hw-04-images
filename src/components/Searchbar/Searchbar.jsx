@@ -17,8 +17,6 @@ export const Searchbar = ({ onSubmit }) => {
     onSubmit(search);
   };
 
-  // render() {
-  //    const { search } = this.state;
   return (
     <header className="Searchbar">
       <form className="Form" onSubmit={handleSubmit}>
@@ -45,5 +43,3 @@ export const Searchbar = ({ onSubmit }) => {
 Searchbar.propTypes = {
   onSubmit: propTypes.func.isRequired,
 };
-
-// <button type="submit" className="Button" onClick={onSearch}></button>

@@ -16,29 +16,20 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageForModal, setImageForModal] = useState('');
 
-  // const per_page = 12;
-
-  // const allPages = '';
-
   const loadGallery = async () => {
     setIsLoading(true);
-    //  let { search, page } = this.state;
 
     const data = await galleryApi(search, page);
 
-    //   this.setState({
     setPage(page);
     setGallery(data.hits);
     setIsLoading(false);
     setAllImages(data.total);
-    //    allPages: data.totalHits / 12,
-    //   });
-    //  console.log(this.allPages);
   };
 
   const loadMoreImages = async () => {
     setIsLoading(true);
-    //  const { search, page } = this.state;
+
     const data = await galleryApi(search, page);
 
     setGallery(prevState => [...prevState, ...data.hits]);
@@ -57,7 +48,6 @@ const App = () => {
     setSearch(search);
     setPage(1);
     setIsLoading(true);
-    //    images: [], isLoading: true
   };
 
   const handleImageClick = imageLink => {
@@ -75,24 +65,11 @@ const App = () => {
 
   //  componentDidUpdate
 
-  //async (prevProps, prevState) {
-  //  if (prevState.search !== this.state.search) {
-  //    await loadGallery();
-  //  }
-
-  //  if (
-  //    this.state.page !== prevState.page &&
-  //    prevState.search === this.state.search
-  //  ) {
-  //    this.loadMoreImages();
-  //    this.setState({ page: this.state.page });
-  //  }
-  // }
-
   useEffect(() => {
     if (search !== '') {
       loadGallery();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
   useEffect(() => {
@@ -100,21 +77,10 @@ const App = () => {
       loadMoreImages();
       setPage(page);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   const areImages = gallery.length > 0;
-  // render() {
-  //   const {
-  //     gallery,
-  //     search,
-  //     isLoading,
-  //     isModalOpen,
-  //    imageForModal,
-  //    allImages,
-  //  } = this.state;
-
-  //   const areImages = gallery.length > 0;
-  //   console.log(this.state.page);
 
   return (
     <div
