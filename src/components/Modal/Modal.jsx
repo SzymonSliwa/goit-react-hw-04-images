@@ -13,20 +13,11 @@ export const Modal = ({ image, description, onClose }) => {
 
   // componentWillUnmount() {
 
-  // const handleBackdropClick = e => {
-  //  if (e.currentTarget === e.target) {
-  //     onClose();
-  //    }
-  //  };
-
   const closeModal = e => {
     if (e.code === 'Escape' || e.currentTarget === e.target) {
       onClose();
     }
   };
-
-  // render() {
-  //  const { image, description } = this.props;
 
   return (
     <div className="Overlay" onClick={closeModal}>
